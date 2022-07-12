@@ -10,9 +10,11 @@ const upload = multer({
   dest: "./tmp",
 });
 
-routes.post("/", createCategoryController.handle);
+routes.post("/", (req, res) => createCategoryController.handle(req, res));
 
-routes.get("/", listCategoryController.handle);
+routes.get("/", (req, res) => listCategoryController.handle(req, res));
 
-routes.post("/import", upload.single("file"), importCategoryController.handle);
+routes.post("/import", upload.single("file"), (req, res) =>
+  importCategoryController.handle(req, res)
+);
 export { routes as catergoriesRoutes };

@@ -1,0 +1,75 @@
+{
+    "openapi":"3.0.0",
+    "info": {
+        "title":"Cars API Documenatation",
+        "description": "This is a sample API for a cars marketplace.",
+        "version": "1.0.0",
+        "conctact": {
+            "email":"paulo.hercilio2015@gmail.com"
+        }
+    },
+
+    "paths": {
+        "/categories":{
+            "post": {
+                "summary": "Create a category",
+                "description": "Create a new category",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type":"object",
+                                "properties":{
+                                    "name": {
+                                        "type":"string"
+                                    },
+                                    "description":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "name":"Sedan",
+                                    "description":"Type of car usually used by families"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201": {
+                        "description":"Created"
+                    },
+                    "500":{
+                        "description":"Category already exist!"
+                    }
+                }
+            },
+
+            "get": {
+                "tags" : ["Category"],
+                "summary": "List all categories",
+                "description": "List all categories",
+                "responses": {
+                    "201": {
+                        "description":"Success",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
