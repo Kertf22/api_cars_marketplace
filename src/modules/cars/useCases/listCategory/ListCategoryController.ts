@@ -6,7 +6,7 @@ class ListCategoryController {
 
   handle(req: Request, res: Response): Response {
     const categories = this.listCategoryUseCase.execute();
-
+    console.log("foi")
     return res.status(201).json(categories);
   }
 }

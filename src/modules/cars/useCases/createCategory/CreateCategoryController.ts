@@ -6,7 +6,7 @@ class CreateCategoryController {
 
   handle(req: Request, res: Response): Response {
     const { name, description } = req.body;
-    console.log(this.createCategoryUseCase)
+    console.log("this.createCategoryUseCase")
     this.createCategoryUseCase.execute({ name, description });
 
     return res.status(201).send();

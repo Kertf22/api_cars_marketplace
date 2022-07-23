@@ -1,0 +1,13 @@
+{
+    "type": "postgres",
+    "port": 5432,
+    "host": "database",
+    "username": "docker",
+    "password": "cars",
+    "database": "cars_marketplace",
+    "migrations": ["./src/database/migrations/*.js"],
+    "cli": {
+        "migrationsDir": "./src/database/migrations"
+    }
+
+}
