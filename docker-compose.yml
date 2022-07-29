@@ -19,12 +19,17 @@ services:
   app:
     build: .
     container_name: api_cars
+    restart: always
+
     ports: 
-      - 3333
+      - 3333:3333
+      - 9229:9229 #Você pode inserir essa porta tbm pra poder usar o debug
+    links:
+      - database
+    depends_on: 
+      - database
     volumes:
       - .:/usr/app
-      # - /usr/app/node_modules
-    # network_mode: host
 
 volumes:
   pgdata:

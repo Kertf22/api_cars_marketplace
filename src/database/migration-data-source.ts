@@ -1,9 +1,9 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 
-export const AppDataSource = new DataSource({
+export const MigrationDataSource = new DataSource({
     type: "postgres",
-    host: "database",
+    host: "localhost",
     port: 5432,
     username: "docker",
     password: "cars",

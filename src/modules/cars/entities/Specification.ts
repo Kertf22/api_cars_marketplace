@@ -1,12 +1,13 @@
+
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity("categories")
-class Category {
+@Entity("specifications")
+class Specification {
 
   @PrimaryColumn()
   id?: string;
-  
+
   @Column()
   name: string;
 
@@ -26,5 +27,4 @@ class Category {
   }
 }
 
-
-export default Category;
+export { Specification };

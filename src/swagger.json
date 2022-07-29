@@ -1,61 +1,50 @@
 {
-    "openapi":"3.0.0",
+    "openapi": "3.0.0",
     "info": {
-        "title":"Cars API Documenatation",
+        "title": "Cars API Documenatation",
         "description": "This is a sample API for a cars marketplace.",
         "version": "1.0.0",
         "conctact": {
-            "email":"paulo.hercilio2015@gmail.com"
+            "email": "paulo.hercilio2015@gmail.com"
         }
     },
-
     "paths": {
-        "/categories":{
+        "/categories": {
             "post": {
+                "tags": [
+                    "Category"
+                ],
                 "summary": "Create a category",
                 "description": "Create a new category",
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "type":"object",
-                                "properties":{
-                                    "name": {
-                                        "type":"string"
-                                    },
-                                    "description":{
-                                        "type":"string"
-                                    }
-                                },
-                                "example":{
-                                    "name":"Sedan",
-                                    "description":"Type of car usually used by families"
-                                }
-                            }
+                            "schema": "#/definitions/Category"
                         }
                     }
                 },
-                "responses":{
+                "responses": {
                     "201": {
-                        "description":"Created"
+                        "description": "Created"
                     },
-                    "500":{
-                        "description":"Category already exist!"
+                    "500": {
+                        "description": "Category already exist!"
                     }
                 }
             },
-
             "get": {
-                "tags" : ["Category"],
+                "tags": [
+                    "Category"
+                ],
                 "summary": "List all categories",
                 "description": "List all categories",
                 "responses": {
                     "201": {
-                        "description":"Success",
+                        "description": "Success",
                         "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"array",
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
                                     "properties": {
                                         "name": {
                                             "type": "string"
@@ -68,6 +57,81 @@
                             }
                         }
                     }
+                }
+            }
+        },
+        "/categories/import": {
+            "post": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Upload new categories",
+                "description": "Upload new categories by a file csv.",
+                "requestBody": {
+                    "multipart/form-data": {
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/specifications": {
+            "post": {
+                "tags": [
+                    "Specifications"
+                ],
+                "summary": "Create a specification",
+                "description": "Create a new specification",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Specification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Specification already exist!"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Catergory": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "name": "Sedan",
+                "description": "Type of car usually used by families"
+            }
+        },
+        "Specification": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
                 }
             }
         }
