@@ -1,9 +1,6 @@
+import { ICreateSpeficicationDTO } from "../DTOS/ICreateSpeficicationDTO";
 import { Specification } from "../entities/Specification";
 
-interface ICreateSpeficicationDTO {
-  name: string;
-  description: string;
-}
 
 interface ISpecificationsRepository {
 
@@ -14,4 +11,4 @@ interface ISpecificationsRepository {
 }
 
 
-export { ISpecificationsRepository, ICreateSpeficicationDTO }
+export { ISpecificationsRepository }

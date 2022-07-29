@@ -35,10 +35,8 @@ export class CreateCategory1658495353654 implements MigrationInterface {
         }))
     }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        const table = await queryRunner.getTable("categories");
-        
-        await queryRunner.dropTable(table);
+    public async down(queryRunner: QueryRunner): Promise<void> {        
+        await queryRunner.dropTable("categories");
     }
 
 }

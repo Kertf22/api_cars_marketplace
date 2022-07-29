@@ -5,6 +5,6 @@ const routes = Router();
 
 const createSpecificationController = new CreateSpecificationController();
 
-routes.post("/", (req, res) => createSpecificationController.handle(req, res));
+routes.post("/", createSpecificationController.handle);
 
 export { routes as specificationsRoutes };

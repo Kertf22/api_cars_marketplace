@@ -19,7 +19,8 @@ export class CreateUser1659101524260 implements MigrationInterface {
                     },
                     {
                         name: "username",
-                        type: "varchar"
+                        type: "varchar",
+                        isUnique: true
                     },
                     {
                         name: "driver_license",
@@ -27,7 +28,8 @@ export class CreateUser1659101524260 implements MigrationInterface {
                     },
                     {
                         name: "admin",
-                        type: "boolean"
+                        type: "boolean",
+                        default: false
                     },
                     {
                         name: "email",
@@ -55,9 +57,8 @@ export class CreateUser1659101524260 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> {
 
-        const table = await queryRunner.getTable("users");
 
-        await queryRunner.dropTable(table)
+        await queryRunner.dropTable("users")
     }
 
 }
